@@ -28,4 +28,4 @@ node index.js --input=./file.json --from=a --to=f --color=red
 ```
 color es opcional y puede ser white (por defecto), red o green.
 
-El archivo file.json posee la red descrita en el enunciado del problema traducido al diseño que propongo.
+El archivo de [demostracion](demoFile.json) posee la red descrita en el enunciado del problema traducido al diseño que propongo.
