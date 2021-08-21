@@ -15,4 +15,6 @@ if (argv.input && argv.from && argv.to) {
     const nodeList = findShortestPathNodeList({from, to, color, pathsConfiguration: inputFileParsed})
     console.log(nodeList.reduce((acc, current) => acc + "->" + current))
   });
+} else {
+  console.log("Please provide 'input', 'from' and 'to'")
 }

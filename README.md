@@ -2,6 +2,10 @@
 
 Este programa escrito en javascript encuentra alguna de las rutas mas cortas entre dos puntos de una red descrita de acuerdo a los requerimientos de la tarea de Buda.
 
+## Requerimientos
+
+Para ejecutar el programa, se requiere node v16.6.0, npm 7.19.0 y ejecutar ``npm install``
+
 El programa recibe una configuracion a partir de un archivo json con el siguiente formato:
 ````js
 {

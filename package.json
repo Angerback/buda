@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "process": "node index.js serve ./file.json"
+    "demo": "node index.js --input=./demoFile.json --from=a --to=f",
+    "demo:red": "node index.js --input=./demoFile.json --from=a --to=f --color=red",
+    "demo:green": "node index.js --input=./demoFile.json --from=a --to=f --color=green"
   },
   "author": "",
   "license": "ISC",
