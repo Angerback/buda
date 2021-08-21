@@ -1,27 +1,16 @@
 import { findShortestPathNodeList } from ".";
 
 const mockConfig = {
-  paths: {
-    a: ["b"],
-    b: ["a", "c"],
-    c: ["b", "d", "g"],
-    d: ["c", "e"],
-    e: ["d", "f"],
-    f: ["e", "i"],
-    i: ["f", "h"],
-    h: ["i", "g"],
-    g: ["h", "c"],
-  },
   stations: {
-    a: "white",
-    b: "white",
-    c: "white",
-    d: "white",
-    e: "white",
-    f: "white",
-    g: "green",
-    h: "red",
-    i: "green",
+    a: { color: "white", connections: ["b"] },
+    b: { color: "white", connections: ["a", "c"] },
+    c: { color: "white", connections: ["b", "d", "g"] },
+    d: { color: "white", connections: ["c", "e"] },
+    e: { color: "white", connections: ["d", "f"] },
+    f: { color: "white", connections: ["e", "i"] },
+    i: { color: "green", connections: ["f", "h"] },
+    h: { color: "red", connections: ["i", "g"] },
+    g: { color: "green", connections: ["h", "c"] },
   },
 };
 
@@ -38,10 +27,20 @@ describe("pathFinder", () => {
 
   test("should return correct path for nodes separated by one node", () => {
     expect(
-      findShortestPathNodeList({ pathsConfiguration: mockConfig, from: "a", to: "c", color: "red" })
+      findShortestPathNodeList({
+        pathsConfiguration: mockConfig,
+        from: "a",
+        to: "c",
+        color: "red",
+      })
     ).toEqual(["a", "b", "c"]);
     expect(
-      findShortestPathNodeList({ pathsConfiguration: mockConfig, from: "b", to: "d", color: "red" })
+      findShortestPathNodeList({
+        pathsConfiguration: mockConfig,
+        from: "b",
+        to: "d",
+        color: "red",
+      })
     ).toEqual(["b", "c", "d"]);
   });
 
