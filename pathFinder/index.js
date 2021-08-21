@@ -4,13 +4,13 @@ const trainToStationMapping = {
   red: ["white", "red"],
 };
 
-export const findShortestPathNodeList = ({ pathsConfiguration, from, to, color }) => {
+export const findShortestPathNodeList = ({
+  pathsConfiguration,
+  from,
+  to,
+  color,
+}) => {
   const { stations } = pathsConfiguration;
-
-  const removeSkippedNodes = (path) =>
-    path.filter((node) =>
-      trainToStationMapping[color].includes(stations[node].color)
-    );
 
   const getShortestPath = (possibilities, currentPath) => {
     const localPaths = possibilities.map((possibleNextNode) => {
@@ -32,7 +32,13 @@ export const findShortestPathNodeList = ({ pathsConfiguration, from, to, color }
       .map(removeSkippedNodes)
       .sort((a, b) => a.length - b.length)[0];
   };
+
+  const removeSkippedNodes = (path) =>
+    path.filter((node) =>
+      trainToStationMapping[color].includes(stations[node].color)
+    );
+
   const startingPath = [from];
 
-  return getShortestPath(stations[from].connections, startingPath)
+  return getShortestPath(stations[from].connections, startingPath);
 };

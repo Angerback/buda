@@ -2,6 +2,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { readFile } from "fs";
 import { findShortestPathNodeList } from "./pathFinder/index.js";
+import { listToArrowString } from "./utils/formatters.js";
 const argv = yargs(hideBin(process.argv)).argv;
 
 if (argv.input && argv.from && argv.to) {
@@ -13,8 +14,8 @@ if (argv.input && argv.from && argv.to) {
     const {from, to, color = "white"} = argv;
     const inputFileParsed = JSON.parse(file);
     const nodeList = findShortestPathNodeList({from, to, color, pathsConfiguration: inputFileParsed})
-    console.log(nodeList.reduce((acc, current) => acc + "->" + current))
+    console.log(listToArrowString(nodeList))
   });
 } else {
-  console.log("Please provide 'input', 'from' and 'to'")
+  console.log("Please provide parameters 'input', 'from' and 'to'")
 }
