@@ -1,0 +1,24 @@
+{
+  "paths": {
+    "a": ["b"],
+    "b": ["a", "c"],
+    "c": ["b", "d", "g"],
+    "d": ["c", "e"],
+    "e": ["d", "f"],
+    "f": ["e", "i"],
+    "i": ["f", "h"],
+    "h": ["i", "g"],
+    "g": ["h", "c"]
+},
+  "stations": {
+    "a": "white",
+    "b": "white",
+    "c": "white",
+    "d": "white",
+    "e": "white",
+    "f": "white",
+    "g": "green",
+    "h": "red",
+    "i": "green"
+  }
+}
