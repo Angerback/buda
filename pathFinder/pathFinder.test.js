@@ -1,4 +1,4 @@
-import { findShortestPathNodeList } from ".";
+import { findShortestPathNodeList } from "./pathFinder";
 
 const mockConfig = {
   stations: {

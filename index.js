@@ -1,7 +1,7 @@
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { readFile } from "fs";
-import { findShortestPathNodeList } from "./pathFinder/index.js";
+import { findShortestPathNodeList } from "./pathFinder/pathFinder.js";
 import { listToArrowString } from "./utils/formatters.js";
 const argv = yargs(hideBin(process.argv)).argv;
 
