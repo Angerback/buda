@@ -15,8 +15,8 @@ El programa recibe una configuracion a partir de un archivo json con el siguient
     "c": { "color": "white", "connections": ["b"] }
   }
 }
-
 ````
+
 la propiedad connections contiene las conexiones que posee una estacion con otra. Es decir, cada key representa una estacion, y el array que contiene connections son todas las conexiones directas que salen o entran a ese nodo (la direccionalidad no es parte del problema).
 Entonces, de acuerdo a este archivo de ejemplo, la red seria a - b - c. En otras palabras, se colocan todos los vecinos por cada nodo.
 
