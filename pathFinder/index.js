@@ -4,7 +4,7 @@ const trainToStationMapping = {
   red: ["white", "red"],
 };
 
-export const findShortestPath = ({ pathsConfiguration, from, to, color }) => {
+export const findShortestPathNodeList = ({ pathsConfiguration, from, to, color }) => {
   const { paths, stations } = pathsConfiguration;
 
   const removeSkippedNodes = (path) =>
