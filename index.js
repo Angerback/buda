@@ -4,12 +4,11 @@ import { readFile } from "fs";
 import { findShortestPath } from "./pathFinder/index.js";
 const argv = yargs(hideBin(process.argv)).argv;
 
-
-
 if (argv.input) {
-  readFile(argv.input, "utf8", function (err, f) {
-    const inputFile = JSON.parse(f);
+  readFile(argv.input, "utf8", function (err, file) {
     const {from, to, color = "white"} = argv;
-    findShortestPath({from, to, color, config: inputFile})
+    const inputFileParsed = JSON.parse(file);
+    const result = findShortestPath({from, to, color, pathsConfiguration: inputFileParsed})
+    console.log(result.reduce((acc, current) => acc + "->" + current))
   });
 }

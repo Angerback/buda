@@ -28,7 +28,7 @@ const mockConfig = {
 describe("pathFinder", () => {
   test("should return correct adjacent nodes path", () => {
     const result = findShortestPath({
-      config: mockConfig,
+      pathsConfiguration: mockConfig,
       from: "a",
       to: "b",
       color: "red",
@@ -38,10 +38,10 @@ describe("pathFinder", () => {
 
   test("should return correct path for nodes separated by one node", () => {
     expect(
-      findShortestPath({ config: mockConfig, from: "a", to: "c", color: "red" })
+      findShortestPath({ pathsConfiguration: mockConfig, from: "a", to: "c", color: "red" })
     ).toEqual(["a", "b", "c"]);
     expect(
-      findShortestPath({ config: mockConfig, from: "b", to: "d", color: "red" })
+      findShortestPath({ pathsConfiguration: mockConfig, from: "b", to: "d", color: "red" })
     ).toEqual(["b", "c", "d"]);
   });
 
@@ -49,7 +49,7 @@ describe("pathFinder", () => {
     test("when train is red", () => {
       expect(
         findShortestPath({
-          config: mockConfig,
+          pathsConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "red",
@@ -59,7 +59,7 @@ describe("pathFinder", () => {
     test("when train is white", () => {
       expect(
         findShortestPath({
-          config: mockConfig,
+          pathsConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "white",
@@ -69,7 +69,7 @@ describe("pathFinder", () => {
     test("when train is green", () => {
       expect(
         findShortestPath({
-          config: mockConfig,
+          pathsConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "green",
