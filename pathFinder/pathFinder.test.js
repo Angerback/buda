@@ -15,6 +15,17 @@ const mockConfig = {
 };
 
 describe("pathFinder", () => {
+
+  test("should return same node if path goes to the same node", () => {
+    const result = findShortestPathNodeList({
+      pathsConfiguration: mockConfig,
+      from: "a",
+      to: "a",
+      color: "white",
+    });
+    expect(result).toEqual(["a"]);
+  });
+
   test("should return correct adjacent nodes path", () => {
     const result = findShortestPathNodeList({
       pathsConfiguration: mockConfig,

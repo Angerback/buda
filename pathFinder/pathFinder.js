@@ -11,34 +11,37 @@ export const findShortestPathNodeList = ({
   color,
 }) => {
   const { stations } = pathsConfiguration;
+  let shortestPath = [];
 
-  const getShortestPath = (possibilities, currentPath) => {
-    const localPaths = possibilities.map((possibleNextNode) => {
-      if (possibleNextNode === to) {
-        return [...currentPath, possibleNextNode];
+  const explorePathsForShortest = (connections, currentPath) => {
+    connections.forEach((nextStation) => {
+      if (nextStation === to) {
+        const finalPath = [...currentPath, nextStation].filter(
+          checkTrainCorrespondsWithStation
+        );
+        if (
+          finalPath.length < shortestPath.length ||
+          shortestPath.length === 0
+        ) {
+          shortestPath = finalPath;
+        }
       }
-      if (currentPath.includes(possibleNextNode)) {
-        return undefined;
+      if (!currentPath.includes(nextStation)) {
+        explorePathsForShortest(stations[nextStation].connections, [
+          ...currentPath,
+          nextStation,
+        ]);
       }
-
-      return getShortestPath(stations[possibleNextNode].connections, [
-        ...currentPath,
-        possibleNextNode,
-      ]);
     });
-
-    return localPaths
-      .filter((path) => !!path)
-      .map(removeSkippedNodes)
-      .sort((a, b) => a.length - b.length)[0];
   };
 
-  const removeSkippedNodes = (path) =>
-    path.filter((node) =>
-      trainToStationMapping[color].includes(stations[node].color)
-    );
+  const checkTrainCorrespondsWithStation = (node) =>
+    trainToStationMapping[color].includes(stations[node].color);
 
   const startingPath = [from];
-
-  return getShortestPath(stations[from].connections, startingPath);
+  if (from === to) {
+    return startingPath
+  }
+  explorePathsForShortest(stations[from].connections, startingPath);
+  return shortestPath;
 };
