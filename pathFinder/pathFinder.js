@@ -5,12 +5,12 @@ const trainToStationMapping = {
 };
 
 export const findShortestPathNodeList = ({
-  pathsConfiguration,
+  metroConfiguration,
   from,
   to,
   color,
 }) => {
-  const { stations } = pathsConfiguration;
+  const { stations } = metroConfiguration;
   let shortestPath = [];
 
   const explorePathsForShortest = (connections, currentPath) => {

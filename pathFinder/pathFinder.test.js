@@ -18,7 +18,7 @@ describe("pathFinder", () => {
 
   test("should return same node if path goes to the same node", () => {
     const result = findShortestPathNodeList({
-      pathsConfiguration: mockConfig,
+      metroConfiguration: mockConfig,
       from: "a",
       to: "a",
       color: "white",
@@ -28,7 +28,7 @@ describe("pathFinder", () => {
 
   test("should return correct adjacent nodes path", () => {
     const result = findShortestPathNodeList({
-      pathsConfiguration: mockConfig,
+      metroConfiguration: mockConfig,
       from: "a",
       to: "b",
       color: "red",
@@ -39,7 +39,7 @@ describe("pathFinder", () => {
   test("should return correct path for nodes separated by one node", () => {
     expect(
       findShortestPathNodeList({
-        pathsConfiguration: mockConfig,
+        metroConfiguration: mockConfig,
         from: "a",
         to: "c",
         color: "red",
@@ -47,7 +47,7 @@ describe("pathFinder", () => {
     ).toEqual(["a", "b", "c"]);
     expect(
       findShortestPathNodeList({
-        pathsConfiguration: mockConfig,
+        metroConfiguration: mockConfig,
         from: "b",
         to: "d",
         color: "red",
@@ -59,7 +59,7 @@ describe("pathFinder", () => {
     test("when train is red", () => {
       expect(
         findShortestPathNodeList({
-          pathsConfiguration: mockConfig,
+          metroConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "red",
@@ -69,7 +69,7 @@ describe("pathFinder", () => {
     test("when train is white", () => {
       expect(
         findShortestPathNodeList({
-          pathsConfiguration: mockConfig,
+          metroConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "white",
@@ -79,7 +79,7 @@ describe("pathFinder", () => {
     test("when train is green", () => {
       expect(
         findShortestPathNodeList({
-          pathsConfiguration: mockConfig,
+          metroConfiguration: mockConfig,
           from: "a",
           to: "f",
           color: "green",

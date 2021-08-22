@@ -13,7 +13,7 @@ if (argv.input && argv.from && argv.to) {
     }
     const {from, to, color = "white"} = argv;
     const inputFileParsed = JSON.parse(file);
-    const nodeList = findShortestPathNodeList({from, to, color, pathsConfiguration: inputFileParsed})
+    const nodeList = findShortestPathNodeList({from, to, color, metroConfiguration: inputFileParsed})
     console.log(listToArrowString(nodeList))
   });
 } else {
