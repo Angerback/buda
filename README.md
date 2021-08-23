@@ -26,7 +26,7 @@ La propiedad color corresponde al color de cada estacion. Los posibles colores s
 
 Este diseño esta enfocado en facilitar la operacion del algoritmo que ideé, que consiste en tomar la estacion inicial y realizar busquedas "eager" en todos sus posibles ramificaciones (explorar todos los connections), y recursivamente hacer lo mismo con los connections de sus connections hasta que llega a la estacion final, y realiza un ordenamiento entre los caminos posibles buscando un minimo local. Para el tamaño del problema propuesto no detecte ningun problema de stack o memoria, pero no he realizado pruebas con sets de datos muy grandes. Dado el enunciado encontré que este algoritmo recursivo se comporta bien, ya que no hay requerimientos de tiempo o complejidad. Estuve estudiando algoritmos conocidos para problemas de rutas y encontre que resolvian problemas mas complejos con mas variables, como ponderacion de las rutas o direccionalidad, por lo que descarte invertir tiempo en profundizarlos o implementarlos. 
 
-Pensando como producto y MVP, si las rutas se vuelven mas complejas y se requiere un mejor algoritmo, el componente que se dedica a calcular la ruta esta separado en un modulo con sus propias pruebas por lo que refactorizar seria un trabajo sin mucha friccion.
+Pensando como producto y MVP, si las rutas se vuelven mas complejas y se requiere un mejor algoritmo, el componente que se dedica a calcular la ruta esta separado en un modulo con sus propias pruebas por lo que refactorizar seria un trabajo sin mucha friccion. Una optimizacion en la que pense fue matar las busquedas que ya son iguales o exceden el largo de la ruta mas corta ya encontrada.
 
 ## Uso
 
