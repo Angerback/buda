@@ -4,7 +4,7 @@ const trainToStationMapping = {
   red: ["white", "red"],
 };
 
-export const findShortestPathNodeList = ({
+export const findShortestPath = ({
   metroConfiguration,
   from,
   to,

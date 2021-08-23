@@ -1,4 +1,4 @@
-import { findShortestPathNodeList } from "./pathFinder";
+import { findShortestPath } from "./pathFinder";
 
 const mockConfig = {
   stations: {
@@ -17,7 +17,7 @@ const mockConfig = {
 describe("pathFinder", () => {
 
   test("should return same node if path goes to the same node", () => {
-    const result = findShortestPathNodeList({
+    const result = findShortestPath({
       metroConfiguration: mockConfig,
       from: "a",
       to: "a",
@@ -27,7 +27,7 @@ describe("pathFinder", () => {
   });
 
   test("should return correct adjacent nodes path", () => {
-    const result = findShortestPathNodeList({
+    const result = findShortestPath({
       metroConfiguration: mockConfig,
       from: "a",
       to: "b",
@@ -38,7 +38,7 @@ describe("pathFinder", () => {
 
   test("should return correct path for nodes separated by one node", () => {
     expect(
-      findShortestPathNodeList({
+      findShortestPath({
         metroConfiguration: mockConfig,
         from: "a",
         to: "c",
@@ -46,7 +46,7 @@ describe("pathFinder", () => {
       })
     ).toEqual(["a", "b", "c"]);
     expect(
-      findShortestPathNodeList({
+      findShortestPath({
         metroConfiguration: mockConfig,
         from: "b",
         to: "d",
@@ -58,7 +58,7 @@ describe("pathFinder", () => {
   describe("should return correct path from a to f", () => {
     test("when train is red", () => {
       expect(
-        findShortestPathNodeList({
+        findShortestPath({
           metroConfiguration: mockConfig,
           from: "a",
           to: "f",
@@ -68,7 +68,7 @@ describe("pathFinder", () => {
     });
     test("when train is white", () => {
       expect(
-        findShortestPathNodeList({
+        findShortestPath({
           metroConfiguration: mockConfig,
           from: "a",
           to: "f",
@@ -78,7 +78,7 @@ describe("pathFinder", () => {
     });
     test("when train is green", () => {
       expect(
-        findShortestPathNodeList({
+        findShortestPath({
           metroConfiguration: mockConfig,
           from: "a",
           to: "f",
